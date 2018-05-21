@@ -3,24 +3,21 @@
  */
 
 'use strict';
-// const pessoas = require("../models/pessoas");
 const qr = require('qr-image');
 const fs = require('fs');
-const path = require('path')
+const q = require('q');
 
 exports.gerarQRCode = (req, res, next) => {
-  // res.send("Gerando qrcode");
-  const number = Math.floor(Math.random() * global.pessoas.length);
-  const url = 'http://localhost:3000/qrcode/exibe/';
-  const code = qr.image(url, { type: 'png'});
-  res.type('png');
-
-  code.pipe(res);
-
-  var svg_string = qr.imageSync('kdjksjdksdka', { type: 'png' });
-
-  // res.render('generatorqrcode', { idqrcode : number} ); 
   
+  const number = Math.floor(Math.random() * global.pessoas.length);
+  const url = 'https://enigmatic-hamlet-84089.herokuapp.com/qrcode/exibe/';
+
+  gravar_versao1(number, url)
+    .then(function(conteudo){
+    return gravar_versao40(number, url);
+  }).then(function(conteudo){
+    res.render('generatorqrcode', { idqrcode : number });
+  }); 
 }
 
 exports.exibe = (req, res, next ) => {
@@ -35,4 +32,30 @@ exports.exibe = (req, res, next ) => {
 
 exports.index = (req, res, next) => {
   res.render('index', { title : 'Gerador qrcode'} );
+}
+
+function gravar_versao1(number, url){
+
+  var deferred = q.defer();
+
+  var qr_versao1 = qr.imageSync(url + number, { type: 'png' });
+
+  fs.writeFile('public/images/qr_versao1.png', qr_versao1, function(err){
+    deferred.resolve(true);
+  });
+
+  return deferred.promise;
+}
+
+function gravar_versao40(number){
+
+  var deferred = q.defer();
+
+  var qr_versao1 = qr.imageSync(JSON.stringify(global.pessoas[number]), { type: 'png', size: 40 });
+
+  fs.writeFile('public/images/qr_versao40.png', qr_versao1, function(err){
+    deferred.resolve(true);
+  });
+
+  return deferred.promise;
 }
