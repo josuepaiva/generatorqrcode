@@ -25,10 +25,36 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-global.pessoas = [{nome: 'Joao Machado', idade: 20, profissao: "Estudante" },
-                 {nome: 'Maria',        idade: 19, profissao: "Designer"  },
-                 {nome: 'Kleberson',    idade: 35, profissao: "Professor" },
-                 {nome: 'Joana',        idade: 60, profissao: "Aposentada"},
+global.pessoas = [{
+                    nome: 'Joao',
+                    idade: 20,
+                    matricula: '11311854',
+                    curso: 'economia',
+                    data_formacao: '21/08/2016',
+                    data_ingresso: '21/08/2012',
+                    email: 'joao@hotmail.com',
+                    centro: 'CCSA'
+                  },
+                 {
+                  nome: 'Maria Joaquina',
+                  idade: 24,
+                  matricula: '11211854',
+                  curso: 'fisica',
+                  data_formacao: '21/08/2016',
+                  data_ingresso: '21/08/2012',
+                  email: 'mariajoaquina@hotmail.com',
+                  centro: 'CCEN'
+                },
+                {
+                  nome: 'Gilmar Afonso',
+                  idade: 30,
+                  matricula: '11061854',
+                  curso: 'Educação Física',
+                  data_formacao: '21/08/2010',
+                  data_ingresso: '21/08/2006',
+                  email: 'gilmar-01@hotmail.com',
+                  centro: 'CCS'
+                  }
                 ];
                 
 server.listen(port);
