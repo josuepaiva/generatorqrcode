@@ -24,9 +24,10 @@ exports.exibe = (req, res, next ) => {
 
   if (req.params.id !== null) {
     console.log(global.pessoas[req.params.id]);
-    res.render('usuario', { usuario: global.pessoas[req.params.id]} );
+    res.status(200).json(global.pessoas[req.params.id]);
+    // res.render('usuario', { usuario: global.pessoas[req.params.id]} );
   }else{
-    res.render('error', { message: 'Id invalido'});
+    res.status(500).json({ message: 'Id invalido'});
   }
 }
 
