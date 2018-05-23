@@ -4,17 +4,28 @@
     <meta charset="utf-8">
     <title>Geração de QRCode</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1><p>Seu qrcode foi gerado e seu ID é <%= idqrcode %></p></h1>
-    <div>
-      <h1>Qrcode Versão 1</h1>
-      <img src="../images/qr_versao1.png">
-    </div>
-    
-    <div>
-      <h1>Qrcode Versão 40</h1>
-      <img class="formata" src="../images/qr_versao40.png">
+    <div class="container">
+      <h1><p>Use o App para consultar os dados dos alunos</p></h1>
+      <h2><p>Seu qrcode foi gerado e seu ID é <%= idqrcode %></p></h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Qrcode Versão 1</h3>
+          <a href="https://enigmatic-hamlet-84089.herokuapp.com/qrcode/exibe/<%= idqrcode %>">
+            <img src="../images/qr_versao1.png">
+          </a>
+        </div>
+        <div class="col-md-6">
+          <h3>Qrcode Versão 40</h3>
+          <a href="https://enigmatic-hamlet-84089.herokuapp.com/qrcode/exibe/<%= idqrcode %>">
+            <img class="formata" src="../images/qr_versao40.png">
+          </a>
+        </div>
     </div>
   </body>
 </html>
