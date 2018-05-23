@@ -3,10 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Para gerar seu qrcode utilize a rota <a href="https://enigmatic-hamlet-84089.herokuapp.com/qrcode/gerarqrcode">Click aqui</a></p>
+    <div class="container">
+	    <h1><%= title %></h1>
+	    <p>Para gerar seu qrcode utilize a rota <a href="https://enigmatic-hamlet-84089.herokuapp.com/qrcode/gerarqrcode">Click aqui</a></p>
+
+	    <h2> Rotas da API</h2>
+    	<table class="table table-hover">
+	      <tr>
+	        <th>Ação</th>
+	        <th>Method</th>
+	        <th>URL</th>
+	      </tr>
+	      <tr>
+	        <td>Gerar Qrcode</td>
+	        <td>GET</td>
+	        <td>/qrcode/gerarqrcode</td>
+	      </tr>
+	      <tr>
+	        <td>Exibir dados Aluno</td>
+	        <td>GET</td>
+	        <td>/qrcode/exbibe/:id</td>
+	      </tr>
+	    </table>
+    </div>
   </body>
 </html>
