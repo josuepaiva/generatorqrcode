@@ -27,9 +27,3 @@ tr:nth-child(even) {
   max-width: 300px;
   height: auto;
 }
-
-div {
-  position: relative;
-  float: left;
-  width: 50%;
-}
